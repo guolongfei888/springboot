@@ -2,32 +2,53 @@ package com.panshi.springbootconfig.entity;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 /**
- * @ClassName Person
- * @Description
- * @Author guolongfei
- * @Date 2020/3/24  14:11
- * @Version
+ *将配置文件中配置的每一个属性的值，映射到这个组件中
+ * '@ConfigurationProperties'：告诉SpringBoot将本类中的所有属性和配置文件中相关的配置进行绑定；
+ *        prefix = "person"：配置文件中哪个下面的所有属性进行一一映射
+ *
+ *   只有这个组件是容器中的组件，才能容器提供的@ConfigurationProperties功能；
+ *    '@ConfigurationProperties(prefix = "person")'默认从全局配置文件中获取值；
  */
+@PropertySource(value = "classpath:person.properties")
 @Component
-//@ConfigurationProperties(prefix = "person")
+@ImportResource(value = {"classpath:beans.xml"})
+@ConfigurationProperties(prefix = "person")
+@Validated
 public class Person {
-    @Value("#{11*3}")
+    /**
+     * <bean class="Person">
+     *      <property name="lastName" value="字面量/${key}从环境变量、配置文件中获取值/#{SpEL}"></property>
+     * <bean/>
+     */
+
+//    @Value("#{11*3}")
     private Integer id;
-    @Value("#{'张三'}")
+//    @Value("#{'张三'}")
     private String lastName;
-    private boolean boss;
+    private Integer age;
+    private Boolean boss;
     private Date birth;
     private List<String> lists;
     private Map maps;
     private Dog dog;
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
 
     public Integer getId() {
         return id;
@@ -90,6 +111,7 @@ public class Person {
         return "Person{" +
                 "id=" + id +
                 ", lastName='" + lastName + '\'' +
+                ", age=" + age +
                 ", boss=" + boss +
                 ", birth=" + birth +
                 ", lists=" + lists +
