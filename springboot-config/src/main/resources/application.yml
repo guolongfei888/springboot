@@ -1,0 +1,26 @@
+
+#spring:
+#  http:
+#    encoding:
+#      charset: UTF-8
+#      force: true
+#      enabled: true
+#
+#server:
+#  tomcat:
+#    uri-encoding: UTF-8
+
+# setting设置中 为utf8,然后转换为GBK,再转换为utf8 ,中文就不显示GBK乱码了,搞不懂原因
+person:
+  id: 1
+  lastName: 张三
+  boss: true
+  birth: 2015/03/11
+  maps: {k1: v1,k2: v2}
+  lists:
+    - 李四
+    - 王五
+  dog:
+    name: 小狗
+    age: 2
+
