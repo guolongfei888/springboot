@@ -18,15 +18,15 @@ public class MyConfig implements WebMvcConfigurer {
     }
 
      //所有的WebMvcConfigurerAdapter组件都会一起起作用
-     @Bean
-     public WebMvcConfigurer webMvcConfigurer() {
-        WebMvcConfigurer webMvcConfigurer = new WebMvcConfigurer() {
-            @Override
-            public void addViewControllers(ViewControllerRegistry registry) {
-                registry.addViewController("/").setViewName("login");
-                registry.addViewController("/index.html").setViewName("login");
-            }
-        };
-        return webMvcConfigurer;
-    }
+//     @Bean
+//     public WebMvcConfigurer webMvcConfigurer() {
+//        WebMvcConfigurer webMvcConfigurer = new WebMvcConfigurer() {
+//            @Override
+//            public void addViewControllers(ViewControllerRegistry registry) {
+//                registry.addViewController("/").setViewName("login");
+//                registry.addViewController("/index.html").setViewName("login");
+//            }
+//        };
+//        return webMvcConfigurer;
+//    }
 }
