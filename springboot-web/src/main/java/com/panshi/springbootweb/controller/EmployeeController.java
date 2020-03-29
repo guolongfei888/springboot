@@ -56,7 +56,7 @@ public class EmployeeController {
 
     //
     @GetMapping("/emp/{id}")
-    public String toEditPage(@PathVariable Integer id,Model model) {
+    public String toEditPage(@PathVariable("id") Integer id,Model model) {
         Employee employee = employeeDao.get(id);
         model.addAttribute("emp",employee);
 
@@ -69,10 +69,10 @@ public class EmployeeController {
 
 
     //员工删除
-    @DeleteMapping("/emp/{id}")
+//    @DeleteMapping("/emp/{id}")
+    @RequestMapping(value = "/emp/{id}",method = RequestMethod.POST)
     public String deleteEmp(@PathVariable("id") Integer id) {
-        Employee employee = employeeDao.get(id);
-        System.out.println(employee);
+
         employeeDao.delete(id);
         return "redirect:/emps";
     }
