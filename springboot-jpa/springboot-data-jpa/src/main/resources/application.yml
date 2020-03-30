@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    #   \u6570\u636E\u6E90\u57FA\u672C\u914D\u7F6E
+    url: jdbc:mysql://localhost:3306/jpa?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+
+  jpa:
+    hibernate:
+      # \u66F4\u65B0\u6216\u65B0\u5EFA\u6570\u636E\u8868\u7ED3\u6784
+      ddl-auto: update
+    # \u63A7\u5236\u53F0\u663E\u793Asql
+    show-sql: true
