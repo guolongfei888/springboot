@@ -2,6 +2,9 @@ package com.panshi.springbootweb.config;
 
 import com.panshi.springbootweb.component.MyLocaleResolver;
 import com.panshi.springbootweb.interceptor.LoginHandlerInterceptor;
+import org.springframework.boot.autoconfigure.web.embedded.EmbeddedWebServerFactoryCustomizerAutoConfiguration;
+import org.springframework.boot.web.server.ConfigurableWebServerFactory;
+import org.springframework.boot.web.server.WebServerFactoryCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
@@ -15,7 +18,21 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 //@EnableWebMvc
 public class MyConfig implements WebMvcConfigurer {
-    @Override
+
+    // WebServerFactoryCustomizer
+//    @Bean
+//    public WebServerFactoryCustomizer<ConfigurableWebServerFactory> webServerFactoryCustomizer() {
+//        return new WebServerFactoryCustomizer<ConfigurableWebServerFactory>() {
+//
+//            // 定制嵌入式的Servlet容器相关的规则
+//            @Override
+//            public void customize(ConfigurableWebServerFactory factory) {
+//                factory.setPort(8082);
+//            }
+//        };
+//    }
+
+     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         //浏览器发送 /superbeyone 请求来到 success
         registry.addViewController("/superbeyone").setViewName("success");
@@ -37,8 +54,8 @@ public class MyConfig implements WebMvcConfigurer {
             public void addInterceptors(InterceptorRegistry registry) {
                 //静态资源；  *.css , *.js
                 //SpringBoot已经做好了静态资源映射
-                registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
-                        .excludePathPatterns("/index.html","/","/user/login");
+//                registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
+//                        .excludePathPatterns("/index.html","/","/user/login");
             }
         };
         return webMvcConfigurer;

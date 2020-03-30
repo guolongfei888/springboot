@@ -1,10 +1,12 @@
 package com.panshi.springbootweb.controller;
 
+import com.panshi.springbootweb.exception.UserNotExistException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.Arrays;
@@ -20,6 +22,14 @@ import java.util.Map;
  */
 @Controller
 public class IndexController {
+    @ResponseBody
+    @RequestMapping("/hello")
+    public String hello(@RequestParam("user") String user) {
+        if ("aaa".equals(user)) {
+            throw new UserNotExistException();
+        }
+        return "hello World";
+    }
 
     @RequestMapping("/success")
     public String success(Map<String,Object> map) {
