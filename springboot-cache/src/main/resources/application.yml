@@ -6,6 +6,8 @@ spring:
     username: root
     password: root
 
+  redis:
+    host: localhost
 
 #    schema:
 #      - classpath:sql/department.sql
