@@ -12,11 +12,14 @@ package com.panshi.springbootshiro01.controller;
 
 import com.panshi.springbootshiro01.entity.User;
 import com.panshi.springbootshiro01.service.UserService;
+import com.panshi.springbootshiro01.util.MD5Utils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.Md5Hash;
+import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.subject.Subject;
+import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,13 +32,19 @@ public class IndexController {
     @Autowired
     private UserService userService;
 
+
+
     @PostMapping("/insert")
     public String add(User user) throws Exception {
         //生成盐（部分，需要存入数据库中）
-        String random=new SecureRandomNumberGenerator().nextBytes().toHex();
+//        String random=new SecureRandomNumberGenerator().nextBytes().toHex();
         //将原始密码加盐（上面生成的盐），并且用md5算法加密三次，将最后结果存入数据库中
-        String result = new Md5Hash("password",random,3).toString();
-        user.setPassword(result);
+//        String result = new Md5Hash("password",random,3).toString();
+        if (user.getUsername() == null || "".equals(user.getUsername()) || user.getPassword() == null || "".equals(user.getPassword())) {
+           throw new AuthenticationException("用户名或密码不正确!");
+        }
+        String pwd = MD5Utils.MD5Pwd(user.getUsername(), user.getPassword());
+        user.setPassword(pwd);
         int count = userService.insert(user);
         if (count < 1) {
             return "添加用户失败";

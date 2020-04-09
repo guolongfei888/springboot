@@ -2,6 +2,7 @@ package com.panshi.springbootshiro01.config;
 
 import com.panshi.springbootshiro01.entity.User;
 import com.panshi.springbootshiro01.mapper.UserMapper;
+import com.panshi.springbootshiro01.util.MD5Utils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -55,11 +56,12 @@ public class CustomRealm extends AuthorizingRealm {
         String password = user.getPassword();
         if (userName==null) {
             throw new AccountException("用户名不正确");
-        } else if (!password.equals(userPwd)) {
+        } else if (!password.equals(MD5Utils.MD5Pwd(userName,userPwd))) {
             throw new AccountException("密码不正确");
         }
 //        return new SimpleAuthenticationInfo(userName,password,getName());
         //交给AuthenticatingRealm使用CredentialsMatcher进行密码匹配
-        return new SimpleAuthenticationInfo(userName,password, ByteSource.Util.bytes(userName+"salt"),getName());
+        return new SimpleAuthenticationInfo(userName, password,
+                ByteSource.Util.bytes(userName + "salt"), getName());
     }
 }
