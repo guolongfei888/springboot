@@ -60,6 +60,7 @@ public class MyRedisConfig {
         return RedisCacheManager.builder(redisConnectionFactory).cacheDefaults(cacheConfiguration).build();     // 设置默认的cache组件
     }
 
+    // 需要指定一个默认的CacheManager
     @Primary
     @Bean
     public RedisCacheManager departmentRedisCacheManager(RedisConnectionFactory redisConnectionFactory) {

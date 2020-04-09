@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
  * @Version
  */
 @Service
-@Cacheable(cacheNames = "dept",cacheManager = "departmentRedisCacheManager")
+@Cacheable(cacheNames = "dept",cacheManager = "departmentRedisCacheManager") // 指定cacheManager
 public class DepartmentService {
     @Autowired
     DepartmentMapper departmentMapper;
