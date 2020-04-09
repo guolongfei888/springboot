@@ -13,11 +13,11 @@ import java.time.LocalDateTime;
  二、基于接口（SchedulingConfigurer） 前者相信大家都很熟悉，但是实际使用中我们往往想从数据库中读取指定时间来动态执行定时任务，这时候基于接口的定时任务就派上用场了。
  三、基于注解设定多线程定时任务
  */
-//@EnableScheduling  // 开启定时任务
-//@Configuration //主要用于标记配置类，兼备Component的效果
+@EnableScheduling  // 开启定时任务
+@Configuration //主要用于标记配置类，兼备Component的效果
 public class StaticScheduleTask {
 
-//    @Scheduled(cron = "0/5 * * * * ?")  // 到达设定时间执行
+    @Scheduled(cron = "0/5 * * * * ?")  // 到达设定时间执行
 //    @Scheduled(fixedDelay = 5000)     // 每次任务执行完5秒后继续执行
 //    @Scheduled(fixedRate = 5000)    // 每次任务开始执行5秒后继续执行
     public void configureTasks() {

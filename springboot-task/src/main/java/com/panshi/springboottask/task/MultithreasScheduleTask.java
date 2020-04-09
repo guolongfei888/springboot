@@ -15,9 +15,9 @@ import java.time.LocalDateTime;
  * @Date 2020/3/3  10:28
  * @Version
  */
-@Component
-@EnableScheduling   // 开启定时任务
-@EnableAsync    // 开启多线程
+//@Component
+//@EnableScheduling   // 开启定时任务
+//@EnableAsync    // 开启多线程
 public class MultithreasScheduleTask {
     @Async
     @Scheduled(fixedDelay = 1000)  // 间隔1秒
