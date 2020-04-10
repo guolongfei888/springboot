@@ -1,4 +1,4 @@
-package com.panshi.springboot.config;
+package com.panshi.springboot.service;
 
 import org.mybatis.spring.boot.autoconfigure.ConfigurationCustomizer;
 import org.springframework.context.annotation.Bean;

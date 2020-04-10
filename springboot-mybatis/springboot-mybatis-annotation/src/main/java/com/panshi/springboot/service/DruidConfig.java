@@ -1,4 +1,4 @@
-package com.panshi.springboot.config;
+package com.panshi.springboot.service;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
