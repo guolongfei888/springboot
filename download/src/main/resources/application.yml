@@ -1,0 +1,13 @@
+
+spring:
+  thymeleaf:
+    cache: false
+  servlet:
+    multipart:
+      #\u5355\u4E2A\u6570\u636E\u7684\u5927\u5C0F
+      max-file-size: 900MB
+      #\u603B\u6570\u636E\u7684\u5927\u5C0F
+      max-request-size: 1000MB
+
+
+

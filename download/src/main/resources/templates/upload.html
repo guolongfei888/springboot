@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>upload</title>
+</head>
+<body>
+<!-- 文件上传表单的提交方式必须是“post” 编码类型必须为：enctype="multipart/form-data" -->
+<form method="post" th:action="@{/fileUpload}" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit" value="上传">
+</form>
+<br>
+<br>
+<form method="post" th:action="@{/fileUpload2}" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit" value="上传">
+</form>
+<br>
+<br>
+<form method="post" th:action="@{/multiUpload}" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="file" name="file">
+    <input type="file" name="file">
+    <input type="file" name="file">
+    <input type="submit" value="上传">
+</form>
+<br>
+<br>
+<br>
+<br>
+<form method="post" th:action="@{/multiUpload2}" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="file" name="file">
+    <input type="file" name="file">
+    <input type="file" name="file">
+    <input type="submit" value="上传">
+</form>
+</body>
+</html>
