@@ -12,7 +12,9 @@ import java.io.Serializable;
  */
 // 使用JPA注解配置映射关系
 @Entity  // 告诉JPA这是一个实体类(和数据表映射的类)
-@Table(name = "user")  // @Table来指定和那个数据表对应;如果省略默认表名就是user
+// @Table: 对应数据库中的表, 必须, name=表名, Indexes是声明表里的索引, columnList是索引的列, 同时声明此索引列是否唯一, 默认false
+@Table(name = "sys_user", indexes = {@Index(name = "id", columnList = "id", unique = true),
+        @Index(name = "username", columnList = "user_name", unique = true)})
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1960404266651693824L;
