@@ -18,7 +18,7 @@ import java.util.Set;
 /**
  * 自定义的Realm类继承AuthorizingRealm类，并且重载doGetAuthorizationInfo和doGetAuthenticationInfo两个方法。
  * doGetAuthorizationInfo： 权限认证，即登录过后，每个身份不一定，对应的所能看的页面也不一样。
- * doGetAuthenticationInfo：身份认证。即登录通过账号和密码验证登陆人的身份信息。
+ * doGetAuthenticationInfo：身份认证。即登录通过账号和密码验证登陆人的身份信息
  */
 public class CustomRealm extends AuthorizingRealm {
     @Autowired
