@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <option name="USE_RELEASE_OPTION" value="false" />
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="springboot-shiro-jpa" />
+        <module name="springboot-thread-threadpoolexecutor" />
+        <module name="springboot-jpa-thymeleaf" />
+        <module name="springboot-swagger" />
+        <module name="springboot-filter-demo" />
+        <module name="springboot-logging" />
+        <module name="springboot-webservice-01" />
+        <module name="springboot-mail" />
+        <module name="springboot-jdbc-crud" />
+        <module name="download" />
+        <module name="springboot-async-demo2" />
+        <module name="springboot-data-jpa" />
+        <module name="springboot-web" />
+        <module name="springboot-cache" />
+        <module name="springboot-async-demo" />
+        <module name="springboot-mybatis-demo" />
+        <module name="springboot-config" />
+        <module name="springboot-mybatis-annotation" />
+        <module name="springboot-rabbitmq-01" />
+        <module name="springboot-shiro01" />
+        <module name="springboot-jdbc-druid" />
+        <module name="springboot-task" />
+        <module name="springboot-filter-demo2" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="11">
+      <module name="download" target="11" />
+      <module name="springboot-async-demo" target="11" />
+      <module name="springboot-async-demo2" target="11" />
+      <module name="springboot-cache" target="11" />
+      <module name="springboot-config" target="11" />
+      <module name="springboot-data-jpa" target="11" />
+      <module name="springboot-filter-demo" target="11" />
+      <module name="springboot-filter-demo2" target="11" />
+      <module name="springboot-jdbc-crud" target="11" />
+      <module name="springboot-jdbc-druid" target="11" />
+      <module name="springboot-jpa-thymeleaf" target="11" />
+      <module name="springboot-logging" target="11" />
+      <module name="springboot-mail" target="11" />
+      <module name="springboot-mybatis-annotation" target="11" />
+      <module name="springboot-mybatis-demo" target="11" />
+      <module name="springboot-rabbitmq-01" target="11" />
+      <module name="springboot-shiro-jpa" target="11" />
+      <module name="springboot-shiro01" target="11" />
+      <module name="springboot-swagger" target="11" />
+      <module name="springboot-task" target="11" />
+      <module name="springboot-thread-threadpoolexecutor" target="11" />
+      <module name="springboot-web" target="11" />
+      <module name="springboot-webservice-01" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="download" options="-parameters" />
+      <module name="springboot-async-demo" options="-parameters" />
+      <module name="springboot-async-demo2" options="-parameters" />
+      <module name="springboot-cache" options="-parameters" />
+      <module name="springboot-config" options="-parameters" />
+      <module name="springboot-data-jpa" options="-parameters" />
+      <module name="springboot-filter-demo" options="-parameters" />
+      <module name="springboot-filter-demo2" options="-parameters" />
+      <module name="springboot-jdbc-crud" options="-parameters" />
+      <module name="springboot-jdbc-druid" options="-parameters" />
+      <module name="springboot-jpa-thymeleaf" options="-parameters" />
+      <module name="springboot-logging" options="-parameters" />
+      <module name="springboot-mail" options="-parameters" />
+      <module name="springboot-mybatis-annotation" options="-parameters" />
+      <module name="springboot-mybatis-demo" options="-parameters" />
+      <module name="springboot-rabbitmq-01" options="-parameters" />
+      <module name="springboot-shiro-jpa" options="-parameters" />
+      <module name="springboot-shiro01" options="-parameters" />
+      <module name="springboot-swagger" options="-parameters" />
+      <module name="springboot-task" options="-parameters" />
+      <module name="springboot-thread-threadpoolexecutor" options="-parameters" />
+      <module name="springboot-web" options="-parameters" />
+      <module name="springboot-webservice-01" options="-parameters" />
+    </option>
+  </component>
+</project>

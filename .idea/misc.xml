@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/springboot-webservice/springboot-webservice-01/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-web/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-thread/springboot-thread-threadpoolexecutor/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-task/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-swagger/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-shiro/springboot-shiro-jpa/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-shiro/springboot-shiro01/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-rabbitmq/springboot-rabbitmq-01/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-mybatis/springboot-mybatis-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-mybatis/springboot-mybatis-annotation/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-mail/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-logging/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-jpa/springboot-jpa-thymeleaf/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-jpa/springboot-data-jpa/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-jdbc/springboot-jdbc-druid/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-jdbc/springboot-jdbc-crud/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-config/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-cache/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-async/springboot-async-demo2/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-async/springboot-async-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/download/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-filter/springboot-filter-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-filter/springboot-filter-demo2/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="false" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>

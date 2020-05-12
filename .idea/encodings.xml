@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/download" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-async/springboot-async-demo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-async/springboot-async-demo2" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-cache" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-config" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-filter/springboot-filter-demo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-filter/springboot-filter-demo2" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-jdbc/springboot-jdbc-crud" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-jdbc/springboot-jdbc-druid" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-jpa/springboot-data-jpa" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-jpa/springboot-jpa-thymeleaf" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-logging" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-mail" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-mybatis/springboot-mybatis-annotation" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-mybatis/springboot-mybatis-demo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-rabbitmq/springboot-rabbitmq-01" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-shiro/springboot-shiro-jpa" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-shiro/springboot-shiro01" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-swagger" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-task" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-thread/springboot-thread-threadpoolexecutor" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-webservice/springboot-webservice-01" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
