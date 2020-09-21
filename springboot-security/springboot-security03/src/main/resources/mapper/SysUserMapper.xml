@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.panshi.security03.mapper.SysUserMapper">
+    <select id="selectById" parameterType="int" resultType="com.panshi.security03.entity.SysUser">
+        SELECT * FROM sys_user WHERE id = #{id}
+    </select>
+    <select id="selectByName" parameterType="string" resultType="com.panshi.security03.entity.SysUser">
+        SELECT * FROM sys_user WHERE name = #{name}
+    </select>
+    <insert id="insertUser" parameterType="com.panshi.security03.entity.SysUser">
+        insert into sys_user values (null,#{name},#{password})
+    </insert>
+</mapper>
