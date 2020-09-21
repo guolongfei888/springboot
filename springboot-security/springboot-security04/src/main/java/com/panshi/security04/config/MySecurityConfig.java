@@ -1,5 +1,6 @@
 package com.panshi.security04.config;
 
+import com.panshi.security04.filter.VerifyFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +12,7 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
@@ -86,6 +88,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
                 // 指定authenticationDetailsSource
                 .authenticationDetailsSource(authenticationDetailsSource)
                 .and()
+                .addFilterBefore(new VerifyFilter(), UsernamePasswordAuthenticationFilter.class)
                 .logout().permitAll()
                 //自动登录 会自动保存一个名为remember-me的cookie,可以自定义该cookie的名字如: rememberMe
                 .and().rememberMe().rememberMeParameter("rememberMe")
