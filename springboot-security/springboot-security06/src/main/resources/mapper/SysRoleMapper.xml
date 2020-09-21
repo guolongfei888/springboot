@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.panshi.security06.mapper.SysRoleMapper">
+    <select id="selectById" parameterType="int" resultType="com.panshi.security06.entity.SysRole">
+        SELECT * FROM sys_role WHERE id = #{id}
+    </select>
+    <select id="selectByName" parameterType="string" resultType="com.panshi.security06.entity.SysRole">
+        SELECT * FROM sys_role WHERE name = #{name}
+    </select>
+    <insert id="insertRole" parameterType="com.panshi.security06.entity.SysRole">
+        insert into sys_role values (null,#{name})
+    </insert>
+</mapper>
