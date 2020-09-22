@@ -67,4 +67,11 @@ public class LoginController {
     public String printUser() {
         return "如果你看见这句话，说明你有ROLE_USER角色";
     }
+
+    @RequestMapping("/role")
+    @ResponseBody
+    @PreAuthorize("hasRole('ROLE_TOURISTS')")
+    public String printRole() {
+        return "如果你看见这句话，说明你有ROLE_TOURISTS角色";
+    }
 }
