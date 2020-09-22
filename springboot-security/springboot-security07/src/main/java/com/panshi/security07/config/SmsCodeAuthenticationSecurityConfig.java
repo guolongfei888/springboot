@@ -31,12 +31,16 @@ public class SmsCodeAuthenticationSecurityConfig extends SecurityConfigurerAdapt
     public void configure(HttpSecurity http) throws Exception {
         SmsCodeAuthenticationFilter smsCodeAuthenticationFilter = new SmsCodeAuthenticationFilter();
         smsCodeAuthenticationFilter.setAuthenticationManager(http.getSharedObject(AuthenticationManager.class));
+
+        //配置smsCodeAuthenticationFilter成功和失败的处理器
         smsCodeAuthenticationFilter.setAuthenticationSuccessHandler(customAuthenticationSuccessHandler);
         smsCodeAuthenticationFilter.setAuthenticationFailureHandler(customAuthenticationFailureHandler);
 
+        //设置SmsCodeAuthenticationProvider的UserDetailsService
         SmsCodeAuthenticationProvider smsCodeAuthenticationProvider = new SmsCodeAuthenticationProvider();
         smsCodeAuthenticationProvider.setUserDetailsService(userDetailsService);
 
+        //把smsCodeAuthenticationFilter过滤器添加在UsernamePasswordAuthenticationFilter之前
         http.authenticationProvider(smsCodeAuthenticationProvider)
                 .addFilterAfter(smsCodeAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
     }

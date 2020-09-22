@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -61,7 +62,7 @@ public class LoginController {
         Map<String, Object> map = new HashMap<>(16);
         map.put("mobile", mobile);
         map.put("code", code);
-
+        map.put("lastTime", System.currentTimeMillis()+60000);
         session.setAttribute("smsCode", map);
 
         logger.info("{}：为 {} 设置短信验证码：{}", session.getId(), mobile, code);

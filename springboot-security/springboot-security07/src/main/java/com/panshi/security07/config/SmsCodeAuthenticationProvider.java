@@ -1,5 +1,6 @@
 package com.panshi.security07.config;
 
+import com.panshi.security07.execption.ValidateCodeException;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
@@ -10,6 +11,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDateTime;
 import java.util.Map;
 
 /***
@@ -34,6 +36,7 @@ import java.util.Map;
 public class SmsCodeAuthenticationProvider implements AuthenticationProvider {
     private UserDetailsService userDetailsService;
 
+//    @lombok.SneakyThrows
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         SmsCodeAuthenticationToken authenticationToken = (SmsCodeAuthenticationToken) authentication;
@@ -52,7 +55,7 @@ public class SmsCodeAuthenticationProvider implements AuthenticationProvider {
         return authenticationResult;
     }
 
-    private void checkSmsCode(String mobile) {
+    private void checkSmsCode(String mobile) throws ValidateCodeException {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         String inputCode = request.getParameter("smsCode");
 
@@ -63,12 +66,16 @@ public class SmsCodeAuthenticationProvider implements AuthenticationProvider {
 
         String applyMobile = (String) smsCode.get("mobile");
         int code = (int) smsCode.get("code");
+        long lastTime = (long) smsCode.get("lastTime");
 
         if(!applyMobile.equals(mobile)) {
             throw new BadCredentialsException("申请的手机号码与登录手机号码不一致");
         }
         if(code != Integer.parseInt(inputCode)) {
             throw new BadCredentialsException("验证码错误");
+        }
+        if (System.currentTimeMillis()>lastTime) {
+            throw new ValidateCodeException("验证码已过期");
         }
     }
 
