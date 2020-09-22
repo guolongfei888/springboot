@@ -2,13 +2,16 @@ package com.panshi.security03.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
@@ -24,23 +27,24 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private CustomUserDetailsService userDetailsService;
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.userDetailsService(userDetailsService).passwordEncoder(new PasswordEncoder() {
-//            @Override
-//            public String encode(CharSequence charSequence) {
-//                return charSequence.toString();
-//            }
-//
-//            @Override
-//            public boolean matches(CharSequence charSequence, String s) {
-//                return s.equals(charSequence.toString());
-//            }
-//        });
-        // 如果你想要将密码加密，可以修改 configure() 方法如下：
-        auth.userDetailsService(userDetailsService)
-                .passwordEncoder(new BCryptPasswordEncoder());
-    }
+//    // 最后手动指定加密方式,这个原本默认的全局配置config() 可以不需要了
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+////        auth.userDetailsService(userDetailsService).passwordEncoder(new PasswordEncoder() {
+////            @Override
+////            public String encode(CharSequence charSequence) {
+////                return charSequence.toString();
+////            }
+////
+////            @Override
+////            public boolean matches(CharSequence charSequence, String s) {
+////                return s.equals(charSequence.toString());
+////            }
+////        });
+//        // 如果你想要将密码加密，可以修改 configure() 方法如下：
+//        auth.userDetailsService(userDetailsService)
+//                .passwordEncoder(new BCryptPasswordEncoder());
+//    }
 
     @Override
     public void configure(WebSecurity web) throws Exception {
@@ -108,4 +112,50 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
 //            –> SimpleUrlAuthenticationFailureHandler.onAuthenticationFailure()
 //
 //            –> SimpleUrlAuthenticationFailureHandler.saveException()
+
+
+    // 本来用户名输入错误,应该根据自定义CustomUserDetailsService中,抛出UserNotFoundException,
+    // 但是hideUserNotFoundExceptions默认为true,这就是导致 UserNotFoundException 无法抛出的原因。
+    @Bean
+    public DaoAuthenticationProvider authenticationProvider() throws Exception {
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+        provider.setHideUserNotFoundExceptions(false);
+        provider.setUserDetailsService(userDetailsService);
+        provider.setPasswordEncoder(passwordEncoder());
+        return provider;
+    }
+//   // 这是默认用户名 密码不加密的方式验证  如 lisi 123 密码未加密保存
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return new PasswordEncoder() {
+//            @Override
+//            public String encode(CharSequence charSequence) {
+//                return charSequence.toString();
+//            }
+//
+//            @Override
+//            public boolean matches(CharSequence charSequence, String s) {
+//                return s.equals(charSequence.toString());
+//            }
+//        };
+//    }
+
+
+    // 密码加密  用户在注册的时候,对密码进行加密保存
+    @Bean
+    public PasswordEncoder passwordEncoder() throws Exception {
+        return new PasswordEncoder() {
+            @Override
+            public String encode(CharSequence charSequence) {
+                return charSequence.toString();
+            }
+
+            @Override
+            public boolean matches(CharSequence charSequence, String s) {
+                // charSequence 用户输入的密码  , s 是从数据库查到的数据
+
+                return BCrypt.checkpw(charSequence.toString(),s);
+            }
+        };
+    }
 }
