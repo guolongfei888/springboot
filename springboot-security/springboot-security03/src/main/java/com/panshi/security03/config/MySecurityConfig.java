@@ -147,7 +147,7 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter {
         return new PasswordEncoder() {
             @Override
             public String encode(CharSequence charSequence) {
-                return charSequence.toString();
+                return new BCryptPasswordEncoder().encode(charSequence.toString());
             }
 
             @Override
